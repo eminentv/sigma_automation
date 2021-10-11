@@ -1,0 +1,22 @@
+alert_methods: ms_teams
+# Teams
+ms_teams_alert_summary: "Alert"
+ms_teams_webhook_url: "MS Teams Webhook URL"
+## Hive
+hive_connection:
+hive_host: http://localhost
+hive_port: <hive_port>
+hive_apikey: <hive_apikey>
+
+# Hive Alert
+type: 'external'  
+source: 'elastalert'  
+description: '{rule[name]}'  
+severity: 2  
+tags: ['{rule[description]}', '{match[agent][ip]}', '{match[decoder][name]}']  
+tlp: 3  
+status: 'New'  
+follow: True
+
+hive_observable_data_mapping:  
+  - ip: "{match[src_ip]}"
